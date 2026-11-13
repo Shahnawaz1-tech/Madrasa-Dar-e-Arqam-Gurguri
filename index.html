@@ -434,26 +434,163 @@
 <!-- Results -->
 <section id="results">
   <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-5">
-        <h2 class="section-title" data-i18n="res.title">Check your result</h2>
-        <hr class="rule">
-        <p class="section-sub" data-i18n="res.sub">Enter the roll number and registration number printed on your roll slip.</p>
-        <form id="resultForm" class="result-box mt-4" novalidate>
-          <div class="mb-3">
-            <label for="rollNo" class="form-label" data-i18n="res.roll">Roll number</label>
-            <input type="text" class="form-control" id="rollNo" placeholder="2026-001" required dir="ltr">
-          </div>
-          <div class="mb-3">
-            <label for="regNo" class="form-label" data-i18n="res.reg">Registration number</label>
-            <input type="text" class="form-control" id="regNo" placeholder="REG-2026-0001" required dir="ltr">
-          </div>
-          <button type="submit" class="btn btn-green w-100" data-i18n="res.btn">Show result</button>
-          <div class="form-text mt-2" data-i18n="res.hint">یہ نمونہ ہے، اصل نتائج کے لیے مدرسے کا ڈیٹا بیس منسلک ہونا ضروری ہے۔</div>
-        </form>
+    <div class="row justify-content-center mb-4">
+      <div class="col-lg-7 text-center">
+        <span class="about-eyebrow" data-i18n="res.eyebrow">نتائج</span>
+        <h2 class="section-title mt-2" data-i18n="res.title">اپنا نتیجہ دیکھیں</h2>
+        <hr class="rule mx-auto">
+        <p class="section-sub" data-i18n="res.sub">رول نمبر اور رجسٹریشن نمبر درج کریں جو آپ کی رول سلپ پر لکھا ہے۔</p>
       </div>
-      <div class="col-lg-7">
-        <div id="resultOut" aria-live="polite"></div>
+    </div>
+
+    <div class="res-tabs" role="tablist" aria-label="امتحان کی قسم">
+      <button class="res-tab active" id="tab-internal" role="tab" aria-selected="true" aria-controls="panel-internal" data-i18n="res.tabInternal">داخلی امتحان</button>
+      <button class="res-tab" id="tab-wifaq" role="tab" aria-selected="false" aria-controls="panel-wifaq" data-i18n="res.tabWifaq">وفاق المدارس</button>
+    </div>
+
+    <div id="panel-internal" role="tabpanel" aria-labelledby="tab-internal">
+      <div class="row g-4 mt-1">
+        <div class="col-lg-5">
+          <form id="resultForm" class="result-box" novalidate>
+            <div class="res-form-header">
+              <span class="res-form-badge"><i class="bi bi-building me-1"></i><span data-i18n="res.tabInternal">داخلی امتحان</span></span>
+            </div>
+            <div class="mb-3">
+              <label for="rollNo" class="form-label" data-i18n="res.roll">رول نمبر</label>
+              <input type="text" class="form-control" id="rollNo" placeholder="2026-001" required dir="ltr">
+            </div>
+            <div class="mb-3">
+              <label for="regNo" class="form-label" data-i18n="res.reg">رجسٹریشن نمبر</label>
+              <input type="text" class="form-control" id="regNo" placeholder="REG-2026-0001" required dir="ltr">
+            </div>
+            <button type="submit" class="btn btn-green w-100" data-i18n="res.btn">نتیجہ دیکھیں</button>
+            <p class="form-text mt-2" data-i18n="res.hint">آزمائش کے لیے: 2026-001 اور REG-2026-0001 لکھیں۔</p>
+          </form>
+        </div>
+        <div class="col-lg-7">
+          <div id="resultOut" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-wifaq" role="tabpanel" aria-labelledby="tab-wifaq" hidden>
+      <div class="row g-4 mt-1">
+        <div class="col-lg-5">
+          <form id="resultFormWifaq" class="result-box" novalidate>
+            <div class="res-form-header">
+              <span class="res-form-badge res-form-badge--wifaq"><i class="bi bi-award me-1"></i><span data-i18n="res.tabWifaq">وفاق المدارس</span></span>
+            </div>
+            <div class="mb-3">
+              <label for="wifaqRoll" class="form-label" data-i18n="res.wifaqRoll">وفاق رول نمبر</label>
+              <input type="text" class="form-control" id="wifaqRoll" placeholder="WM-2026-001" required dir="ltr">
+            </div>
+            <div class="mb-3">
+              <label for="wifaqReg" class="form-label" data-i18n="res.wifaqReg">وفاق رجسٹریشن نمبر</label>
+              <input type="text" class="form-control" id="wifaqReg" placeholder="WRG-2026-0001" required dir="ltr">
+            </div>
+            <button type="submit" class="btn btn-green w-100" data-i18n="res.btn">نتیجہ دیکھیں</button>
+            <p class="form-text mt-2" data-i18n="res.wifaqHint">آزمائش کے لیے: WM-2026-001 اور WRG-2026-0001 لکھیں۔</p>
+          </form>
+        </div>
+        <div class="col-lg-7">
+          <div id="resultOutWifaq" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Position Holders -->
+<section id="positionHolders" class="pos-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-7 text-center">
+        <span class="about-eyebrow" data-i18n="pos.eyebrow">ہمارے ستارے</span>
+        <h2 class="section-title mt-2" data-i18n="pos.title">پوزیشن ہولڈرز</h2>
+        <hr class="rule mx-auto">
+        <p class="section-sub" data-i18n="pos.sub">وہ طلبہ جنہوں نے داخلی اور وفاق المدارس کے امتحانات میں نمایاں کامیابی حاصل کی۔</p>
+      </div>
+    </div>
+
+    <div class="pos-grid" id="posGrid">
+
+      <article class="pos-card pos-card--featured" data-exam="internal">
+        <div class="pos-card__img-wrap">
+          <img src="images/pos-1.jpg" alt="احمد علی" class="pos-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+          <div class="pos-card__img-fallback" style="display:none"><i class="bi bi-person-fill"></i></div>
+          <span class="pos-badge pos-badge--gold"><i class="bi bi-trophy-fill me-1"></i>پہلی پوزیشن</span>
+          <span class="pos-exam-tag" data-i18n="res.tabInternal">داخلی امتحان</span>
+        </div>
+        <div class="pos-card__body">
+          <h3 class="pos-card__name">احمد علی</h3>
+          <p class="pos-card__meta"><i class="bi bi-person me-1"></i>والد: محمد اکرم</p>
+          <p class="pos-card__meta"><i class="bi bi-book me-1"></i>درسِ نظامی، سال اول</p>
+          <div class="pos-card__stats">
+            <div class="pos-stat"><span class="pos-stat__val">580<small>/600</small></span><span class="pos-stat__lbl">نمبر</span></div>
+            <div class="pos-stat"><span class="pos-stat__val">96.7<small>%</small></span><span class="pos-stat__lbl">فیصد</span></div>
+            <div class="pos-stat"><span class="pos-stat__val">A+</span><span class="pos-stat__lbl">گریڈ</span></div>
+          </div>
+          <blockquote class="pos-card__quote">"علم وہ روشنی ہے جو دل کو منور کرتی ہے۔"</blockquote>
+        </div>
+      </article>
+
+      <div class="pos-side">
+
+        <article class="pos-card pos-card--side" data-exam="internal">
+          <div class="pos-card__img-wrap">
+            <img src="images/pos-2.jpg" alt="عمر فاروق" class="pos-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="pos-card__img-fallback" style="display:none"><i class="bi bi-person-fill"></i></div>
+            <span class="pos-badge pos-badge--silver"><i class="bi bi-award-fill me-1"></i>دوسری پوزیشن</span>
+            <span class="pos-exam-tag" data-i18n="res.tabInternal">داخلی امتحان</span>
+          </div>
+          <div class="pos-card__body">
+            <h3 class="pos-card__name">عمر فاروق</h3>
+            <p class="pos-card__meta"><i class="bi bi-person me-1"></i>والد: فاروق احمد</p>
+            <p class="pos-card__meta"><i class="bi bi-book me-1"></i>حفظِ قرآن</p>
+            <div class="pos-card__stats">
+              <div class="pos-stat"><span class="pos-stat__val">565<small>/600</small></span><span class="pos-stat__lbl">نمبر</span></div>
+              <div class="pos-stat"><span class="pos-stat__val">94.2<small>%</small></span><span class="pos-stat__lbl">فیصد</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pos-card pos-card--side" data-exam="wifaq">
+          <div class="pos-card__img-wrap">
+            <img src="images/pos-3.jpg" alt="زید حسن" class="pos-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="pos-card__img-fallback" style="display:none"><i class="bi bi-person-fill"></i></div>
+            <span class="pos-badge pos-badge--gold"><i class="bi bi-trophy-fill me-1"></i>پہلی پوزیشن</span>
+            <span class="pos-exam-tag pos-exam-tag--wifaq" data-i18n="res.tabWifaq">وفاق المدارس</span>
+          </div>
+          <div class="pos-card__body">
+            <h3 class="pos-card__name">زید حسن</h3>
+            <p class="pos-card__meta"><i class="bi bi-person me-1"></i>والد: حسن علی</p>
+            <p class="pos-card__meta"><i class="bi bi-book me-1"></i>شہادۃ العالمیہ</p>
+            <div class="pos-card__stats">
+              <div class="pos-stat"><span class="pos-stat__val">572<small>/600</small></span><span class="pos-stat__lbl">نمبر</span></div>
+              <div class="pos-stat"><span class="pos-stat__val">95.3<small>%</small></span><span class="pos-stat__lbl">فیصد</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="pos-card pos-card--side" data-exam="wifaq">
+          <div class="pos-card__img-wrap">
+            <img src="images/pos-4.jpg" alt="بلال خان" class="pos-card__img" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+            <div class="pos-card__img-fallback" style="display:none"><i class="bi bi-person-fill"></i></div>
+            <span class="pos-badge pos-badge--bronze"><i class="bi bi-award-fill me-1"></i>تیسری پوزیشن</span>
+            <span class="pos-exam-tag pos-exam-tag--wifaq" data-i18n="res.tabWifaq">وفاق المدارس</span>
+          </div>
+          <div class="pos-card__body">
+            <h3 class="pos-card__name">بلال خان</h3>
+            <p class="pos-card__meta"><i class="bi bi-person me-1"></i>والد: خان محمد</p>
+            <p class="pos-card__meta"><i class="bi bi-book me-1"></i>شہادۃ الثانویہ</p>
+            <div class="pos-card__stats">
+              <div class="pos-stat"><span class="pos-stat__val">558<small>/600</small></span><span class="pos-stat__lbl">نمبر</span></div>
+              <div class="pos-stat"><span class="pos-stat__val">93.0<small>%</small></span><span class="pos-stat__lbl">فیصد</span></div>
+            </div>
+          </div>
+        </article>
+
       </div>
     </div>
   </div>

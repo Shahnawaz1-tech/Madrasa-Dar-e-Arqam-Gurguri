@@ -107,11 +107,15 @@
       "ds.date": "Date", "ds.subject": "Subject", "ds.time": "Time", "ds.hall": "Hall",
       "sub.quran": "Quran", "sub.hadith": "Hadith", "sub.fiqh": "Fiqh", "sub.nahw": "Nahw", "sub.urdu": "Urdu", "sub.math": "Mathematics",
       "res.title": "Check your result", "res.sub": "Enter the roll number and registration number printed on your roll slip.",
+      "res.eyebrow": "Results", "res.tabInternal": "Internal Exam", "res.tabWifaq": "Wifaq ul Madaris",
       "res.roll": "Roll number", "res.reg": "Registration number", "res.btn": "Show result",
-      "res.hint": "Sample only: try 2026-001 and REG-2026-0001. Connect the madrasa database for official results.",
+      "res.wifaqRoll": "Wifaq Roll number", "res.wifaqReg": "Wifaq Registration number",
+      "res.hint": "Sample only: try 2026-001 and REG-2026-0001.",
+      "res.wifaqHint": "Sample only: try WM-2026-001 and WRG-2026-0001.",
       "res.notfound": "No result found. Check both numbers and try again.",
       "res.student": "Student", "res.father": "Father", "res.class": "Class", "res.total": "Total", "res.percent": "Percentage",
       "res.grade": "Grade", "res.status": "Status", "res.pass": "Pass", "res.fail": "Fail", "res.marks": "Marks", "res.out": "Out of", "res.print": "Print result",
+      "pos.eyebrow": "Our Stars", "pos.title": "Position Holders", "pos.sub": "Students who achieved outstanding results in internal and Wifaq ul Madaris exams.",
       "gal.preview": "Gallery image preview", "gal.close": "Close image preview", "gal.eyebrow": "Our campus", "gal.all": "All moments", "gal.fQuran": "Quran learning", "gal.fCampus": "Campus", "gal.fEvents": "Events",
       "gal.title": "Life at the madrasa", "gal.sub": "A glimpse of learning, campus life and the moments we share.",
       "gal.g1": "Quran class", "gal.g2": "Campus", "gal.g3": "Annual function", "gal.g4": "Examination hall", "gal.g5": "Students", "gal.g6": "Hifz graduation",
@@ -193,11 +197,15 @@
       "ds.date": "تاریخ", "ds.subject": "مضمون", "ds.time": "وقت", "ds.hall": "ہال",
       "sub.quran": "قرآن", "sub.hadith": "حدیث", "sub.fiqh": "فقہ", "sub.nahw": "نحو", "sub.urdu": "اردو", "sub.math": "ریاضی",
       "res.title": "اپنا نتیجہ دیکھیں", "res.sub": "رول سلپ پر درج رول نمبر اور رجسٹریشن نمبر لکھیں۔",
+      "res.eyebrow": "نتائج", "res.tabInternal": "داخلی امتحان", "res.tabWifaq": "وفاق المدارس",
       "res.roll": "رول نمبر", "res.reg": "رجسٹریشن نمبر", "res.btn": "نتیجہ دکھائیں",
-      "res.hint": "صرف نمونہ: 2026-001 اور REG-2026-0001 لکھ کر دیکھیں۔ اصل نتائج کے لیے ڈیٹا بیس منسلک کرنا ہوگا۔",
+      "res.wifaqRoll": "وفاق رول نمبر", "res.wifaqReg": "وفاق رجسٹریشن نمبر",
+      "res.hint": "صرف نمونہ: 2026-001 اور REG-2026-0001 لکھ کر دیکھیں۔",
+      "res.wifaqHint": "صرف نمونہ: WM-2026-001 اور WRG-2026-0001 لکھ کر دیکھیں۔",
       "res.notfound": "نتیجہ نہیں ملا۔ دونوں نمبر چیک کر کے دوبارہ کوشش کریں۔",
       "res.student": "طالب علم", "res.father": "ولدیت", "res.class": "درجہ", "res.total": "کل", "res.percent": "فیصد",
       "res.grade": "درجہ بندی", "res.status": "حیثیت", "res.pass": "کامیاب", "res.fail": "ناکام", "res.marks": "حاصل کردہ نمبر", "res.out": "کل نمبر", "res.print": "نتیجہ پرنٹ کریں",
+      "pos.eyebrow": "ہمارے ستارے", "pos.title": "پوزیشن ہولڈرز", "pos.sub": "وہ طلبہ جنہوں نے داخلی اور وفاق المدارس کے امتحانات میں نمایاں کامیابی حاصل کی۔",
       "gal.preview": "گیلری تصویر", "gal.close": "تصویر بند کریں", "gal.eyebrow": "ہمارا مدرسہ", "gal.all": "تمام مناظر", "gal.fQuran": "قرآن کی تعلیم", "gal.fCampus": "مدرسہ", "gal.fEvents": "تقریبات",
       "gal.title": "مدرسے کی زندگی", "gal.sub": "تعلیم، مدرسے کی روزمرہ زندگی اور خوشگوار لمحات کی جھلکیاں۔",
       "gal.g1": "قرآن کلاس", "gal.g2": "عمارت", "gal.g3": "سالانہ تقریب", "gal.g4": "امتحان ہال", "gal.g5": "طلبہ", "gal.g6": "تکمیلِ حفظ",
@@ -385,13 +393,76 @@
     $("#resourceSearch").addEventListener("input", filterResources);
     $("#printSheet").addEventListener("click", () => window.print());
 
-    // Result lookup (demo)
+    // Result tabs
+    $$("#results .res-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        $$("#results .res-tab").forEach(t => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
+        tab.classList.add("active"); tab.setAttribute("aria-selected", "true");
+        $$("#results [role='tabpanel']").forEach(p => p.hidden = true);
+        $("#" + tab.getAttribute("aria-controls")).hidden = false;
+      });
+    });
+
+    // Internal result lookup (demo)
     $("#resultForm").addEventListener("submit", e => {
       e.preventDefault();
       const roll = $("#rollNo").value.trim().toUpperCase();
       const reg = $("#regNo").value.trim().toUpperCase();
       if (roll === DEMO_RESULT.roll && reg === DEMO_RESULT.reg) { currentResult = DEMO_RESULT; renderResult(); }
       else { currentResult = null; renderNotFound(); }
+    });
+
+    // Wifaq result lookup (demo)
+    const DEMO_WIFAQ = {
+      roll: "WM-2026-001", reg: "WRG-2026-0001",
+      name: { en: "Demo Wifaq Student", ur: "نمونہ وفاق طالب علم" },
+      father: { en: "Sample Guardian", ur: "نمونہ سرپرست" },
+      cls: { en: "Shahadat ul Aalamiyah", ur: "شہادۃ العالمیہ" },
+      exam: { en: "Wifaq ul Madaris Annual Exam 2026", ur: "وفاق المدارس سالانہ امتحان 2026" },
+      marks: [
+        { sub: "quran", total: 100, got: 88 }, { sub: "hadith", total: 100, got: 79 },
+        { sub: "fiqh", total: 100, got: 82 },  { sub: "nahw", total: 100, got: 71 },
+        { sub: "urdu", total: 100, got: 77 },  { sub: "math", total: 100, got: 65 }
+      ]
+    };
+    $("#resultFormWifaq").addEventListener("submit", e => {
+      e.preventDefault();
+      const roll = $("#wifaqRoll").value.trim().toUpperCase();
+      const reg = $("#wifaqReg").value.trim().toUpperCase();
+      const out = $("#resultOutWifaq");
+      if (roll === DEMO_WIFAQ.roll && reg === DEMO_WIFAQ.reg) {
+        const r = DEMO_WIFAQ;
+        const total = r.marks.reduce((a, m) => a + m.total, 0);
+        const got = r.marks.reduce((a, m) => a + m.got, 0);
+        const pct = (got / total) * 100;
+        const g = gradeFor(pct);
+        const pass = !g.fail && !r.marks.some(m => m.got < m.total * 0.4);
+        out.innerHTML = `<div class="result-card print-area">
+          <div class="head d-flex justify-content-between flex-wrap gap-2">
+            <div><h3 class="h5 mb-0">${esc(r.exam[lang])}</h3><small class="text-muted">${esc(t("res.class"))}: ${esc(r.cls[lang])}</small></div>
+            <span class="badge ${pass ? "badge-pass" : "badge-fail"} align-self-start fs-6">${esc(pass ? t("res.pass") : t("res.fail"))}</span>
+          </div>
+          <div class="row g-2 mb-3">
+            <div class="col-sm-6"><small class="text-muted d-block">${esc(t("res.student"))}</small><strong>${esc(r.name[lang])}</strong></div>
+            <div class="col-sm-6"><small class="text-muted d-block">${esc(t("res.father"))}</small><strong>${esc(r.father[lang])}</strong></div>
+            <div class="col-sm-6"><small class="text-muted d-block">${esc(t("res.roll"))}</small><bdi dir="ltr">${esc(r.roll)}</bdi></div>
+            <div class="col-sm-6"><small class="text-muted d-block">${esc(t("res.reg"))}</small><bdi dir="ltr">${esc(r.reg)}</bdi></div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-sm align-middle">
+              <thead><tr><th>${esc(t("ds.subject"))}</th><th>${esc(t("res.out"))}</th><th>${esc(t("res.marks"))}</th><th>${esc(t("res.grade"))}</th></tr></thead>
+              <tbody>${r.marks.map(m => `<tr><td>${esc(t("sub."+m.sub))}</td><td>${m.total}</td><td>${m.got}</td><td>${gradeFor((m.got/m.total)*100).grade}</td></tr>`).join("")}</tbody>
+              <tfoot><tr class="fw-bold"><td>${esc(t("res.total"))}</td><td>${total}</td><td>${got}</td><td>${g.grade}</td></tr></tfoot>
+            </table>
+          </div>
+          <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <div><strong>${esc(t("res.percent"))}:</strong> <bdi dir="ltr">${pct.toFixed(1)}%</bdi></div>
+            <button class="btn btn-outline-green btn-sm no-print" type="button" onclick="window.print()"><i class="bi bi-printer me-1"></i>${esc(t("res.print"))}</button>
+          </div>
+        </div>`;
+      } else {
+        out.innerHTML = `<div class="alert alert-warning mb-0">${esc(t("res.notfound"))}</div>`;
+      }
     });
 
     // Contact form (demo)
