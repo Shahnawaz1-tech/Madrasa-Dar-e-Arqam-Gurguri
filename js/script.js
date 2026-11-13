@@ -38,8 +38,8 @@
 
   const DEMO_RESULT = {
     roll: "2026-001", reg: "REG-2026-0001",
-    name: { en: "Abdullah Khan", ur: "عبداللہ خان" },
-    father: { en: "Muhammad Khan", ur: "محمد خان" },
+    name: { en: "Demo Student", ur: "نمونہ طالب علم" },
+    father: { en: "Sample Guardian", ur: "نمونہ سرپرست" },
     cls: { en: "Dars-e-Nizami, Year 1", ur: "درس نظامی، سال اول" },
     exam: { en: "Annual Exam 2026", ur: "سالانہ امتحان 2026" },
     marks: [
@@ -53,9 +53,9 @@
   const I18N = {
     en: {
       brand: "Dar-e-Arqam Gurguri", brandSub: "Madrasa",
-      "nav.home": "Home", "nav.about": "About", "nav.programs": "Programs", "nav.admissions": "Admissions",
+      "nav.home": "Home", "nav.about": "About", "nav.programs": "Programs", "nav.resources": "Guidance", "nav.admissions": "Admissions",
       "nav.notices": "Notices", "nav.results": "Results", "nav.contact": "Contact", "nav.login": "Portal login",
-      "login.student": "Student portal", "login.parent": "Parent portal", "login.teacher": "Teacher portal", "login.admin": "Administration",
+      "login.student": "Student results", "login.parent": "Parent results", "login.wifaq": "Wifaq Madaris login",
       "hero.badge": "Admissions open 2026–2027", "hero.title": "Madrasa Dar-e-Arqam Gurguri",
       "hero.lead": "A place of learning where the Quran, sound character and useful knowledge are taught together, with care for every student.",
       "hero.cta1": "Apply for admission", "hero.cta2": "Check result",
@@ -63,7 +63,7 @@
       "hero.image1": "An open Quran on a wooden stand", "hero.image2": "The madrasa building",
       "hero.image3": "A student reading a book", "hero.image4": "An award for academic achievement", "hero.image5": "Learners studying together",
       "hero.carousel": "Madrasa images", "hero.previous": "Previous image", "hero.next": "Next image",
-      "stat.students": "Students", "stat.teachers": "Teachers", "stat.classes": "Classes", "stat.depts": "Departments",
+      "stats.title": "At a glance", "stat.students": "Students", "stat.teachers": "Teachers", "stat.classes": "Classes", "stat.depts": "Departments",
       "about.eyebrow": "Who we are", "about.title": "About the madrasa",
       "about.v4t": "Every learner matters", "about.v4d": "We follow attendance, assignments and progress, and keep families informed.", "about.since": "Established 2005 · Gurguri",
       "about.p1": "Madrasa Dar-e-Arqam Gurguri teaches the Quran, Hadith, Fiqh and Arabic alongside Urdu, English and mathematics, so that students grow in faith and in everyday skills.",
@@ -93,7 +93,7 @@
       "sub.quran": "Quran", "sub.hadith": "Hadith", "sub.fiqh": "Fiqh", "sub.nahw": "Nahw", "sub.urdu": "Urdu", "sub.math": "Mathematics",
       "res.title": "Check your result", "res.sub": "Enter the roll number and registration number printed on your roll slip.",
       "res.roll": "Roll number", "res.reg": "Registration number", "res.btn": "Show result",
-      "res.hint": "Demo: use roll number 2026-001 and registration number REG-2026-0001.",
+      "res.hint": "Sample only: try 2026-001 and REG-2026-0001. Connect the madrasa database for official results.",
       "res.notfound": "No result found. Check both numbers and try again.",
       "res.student": "Student", "res.father": "Father", "res.class": "Class", "res.total": "Total", "res.percent": "Percentage",
       "res.grade": "Grade", "res.status": "Status", "res.pass": "Pass", "res.fail": "Fail", "res.marks": "Marks", "res.out": "Out of", "res.print": "Print result",
@@ -101,20 +101,31 @@
       "gal.title": "Life at the madrasa", "gal.sub": "A glimpse of learning, campus life and the moments we share.",
       "gal.g1": "Quran class", "gal.g2": "Campus", "gal.g3": "Annual function", "gal.g4": "Examination hall", "gal.g5": "Students", "gal.g6": "Hifz graduation",
       "con.title": "Contact us", "con.addrT": "Address", "con.addr": "Gurguri, Pakistan", "con.phoneT": "Phone and WhatsApp",
-      "con.emailT": "Email",
+      "con.emailT": "Email", "con.phonePending": "Contact number to be added", "con.emailPending": "Email address to be added",
       "con.hoursT": "Office hours", "con.hours": "Saturday to Thursday, 8:00 am to 2:00 pm", "con.map": "Map goes here (Google Maps embed)",
       "con.formT": "Send a message", "con.name": "Your name", "con.phone": "Mobile number", "con.topic": "Topic", "con.msg": "Message", "con.send": "Send message",
       "con.t1": "Admission", "con.t2": "Fees", "con.t3": "Results", "con.t4": "Other",
       "con.ok": "Demo only: your message was not sent. Connect a form service to enable delivery.",
       "con.err": "Please fill in your name, mobile number and message.",
       "foot.about": "Quran, character and knowledge, in one place.", "foot.links": "Quick links", "foot.portals": "Portals",
-      "foot.copy": "© 2026 Madrasa Dar-e-Arqam Gurguri. All rights reserved."
+      "foot.copy": "© 2026 Madrasa Dar-e-Arqam Gurguri. All rights reserved.",
+      "hub.eyebrow": "Information and guidance", "hub.title": "Learning and guidance centre",
+      "hub.sub": "Find key links for admissions, exams, results and trusted Islamic learning resources.",
+      "hub.searchLabel": "Search information", "hub.searchPlaceholder": "Try admission, result, books",
+      "hub.admission": "Admission guide", "hub.admissionD": "Requirements and application steps",
+      "hub.exam": "Exams and notices", "hub.examD": "Latest notices and date sheet",
+      "hub.result": "Results", "hub.resultD": "Look up a result by roll number",
+      "hub.programs": "Academic programs", "hub.programsD": "Courses and curriculum overview",
+      "hub.questions": "Questions and answers", "hub.questionsD": "Public guidance from Jamia Banuri Town",
+      "hub.library": "Books and articles", "hub.libraryD": "Publications and resources for further study",
+      "hub.wifaq": "Wifaq ul Madaris login", "hub.wifaqD": "Official portal for affiliated madaris",
+      "hub.external": "External website", "hub.empty": "No information matched your search."
     },
     ur: {
       brand: "دارِ ارقم گرگری", brandSub: "مدرسہ",
-      "nav.home": "ہوم", "nav.about": "ہمارے بارے میں", "nav.programs": "شعبہ جات", "nav.admissions": "داخلہ",
+      "nav.home": "ہوم", "nav.about": "ہمارے بارے میں", "nav.programs": "شعبہ جات", "nav.resources": "رہنمائی", "nav.admissions": "داخلہ",
       "nav.notices": "اعلانات", "nav.results": "نتائج", "nav.contact": "رابطہ", "nav.login": "پورٹل لاگ اِن",
-      "login.student": "طالب علم پورٹل", "login.parent": "والدین پورٹل", "login.teacher": "اساتذہ پورٹل", "login.admin": "انتظامیہ",
+      "login.student": "طالب علم نتائج", "login.parent": "والدین نتائج", "login.wifaq": "وفاق المدارس لاگ اِن",
       "hero.badge": "داخلے جاری ہیں 2026–2027", "hero.title": "مدرسہ دارِ ارقم گرگری",
       "hero.lead": "ایسی درسگاہ جہاں قرآن، اچھے اخلاق اور مفید علم ایک ساتھ سکھایا جاتا ہے، اور ہر طالب علم کا خیال رکھا جاتا ہے۔",
       "hero.cta1": "داخلے کے لیے درخواست دیں", "hero.cta2": "نتیجہ دیکھیں",
@@ -122,7 +133,7 @@
       "hero.image1": "رحل پر کھلا ہوا قرآن مجید", "hero.image2": "مدرسے کی عمارت",
       "hero.image3": "کتاب پڑھتا ہوا طالب علم", "hero.image4": "تعلیمی کامیابی کا اعزاز", "hero.image5": "مل کر تعلیم حاصل کرتے ہوئے طلبہ",
       "hero.carousel": "مدرسے کی تصاویر", "hero.previous": "پچھلی تصویر", "hero.next": "اگلی تصویر",
-      "stat.students": "طلبہ", "stat.teachers": "اساتذہ", "stat.classes": "درجات", "stat.depts": "شعبے",
+      "stats.title": "اعداد و شمار", "stat.students": "طلبہ", "stat.teachers": "اساتذہ", "stat.classes": "درجات", "stat.depts": "شعبے",
       "about.eyebrow": "ہمارا تعارف", "about.title": "مدرسے کے بارے میں",
       "about.v4t": "ہر طالب علم اہم ہے", "about.v4d": "ہم حاضری، اسائنمنٹس اور تعلیمی پیش رفت پر نظر رکھتے اور اہلِ خانہ کو باخبر رکھتے ہیں۔", "about.since": "قیام 2005ء · گرگری",
       "about.p1": "مدرسہ دارِ ارقم گرگری میں قرآن، حدیث، فقہ اور عربی کے ساتھ اردو، انگریزی اور ریاضی بھی پڑھائی جاتی ہے تاکہ طلبہ دین اور روزمرہ مہارتوں میں آگے بڑھیں۔",
@@ -152,7 +163,7 @@
       "sub.quran": "قرآن", "sub.hadith": "حدیث", "sub.fiqh": "فقہ", "sub.nahw": "نحو", "sub.urdu": "اردو", "sub.math": "ریاضی",
       "res.title": "اپنا نتیجہ دیکھیں", "res.sub": "رول سلپ پر درج رول نمبر اور رجسٹریشن نمبر لکھیں۔",
       "res.roll": "رول نمبر", "res.reg": "رجسٹریشن نمبر", "res.btn": "نتیجہ دکھائیں",
-      "res.hint": "نمونہ: رول نمبر 2026-001 اور رجسٹریشن نمبر REG-2026-0001 لکھیں۔",
+      "res.hint": "صرف نمونہ: 2026-001 اور REG-2026-0001 لکھ کر دیکھیں۔ اصل نتائج کے لیے ڈیٹا بیس منسلک کرنا ہوگا۔",
       "res.notfound": "نتیجہ نہیں ملا۔ دونوں نمبر چیک کر کے دوبارہ کوشش کریں۔",
       "res.student": "طالب علم", "res.father": "ولدیت", "res.class": "درجہ", "res.total": "کل", "res.percent": "فیصد",
       "res.grade": "درجہ بندی", "res.status": "حیثیت", "res.pass": "کامیاب", "res.fail": "ناکام", "res.marks": "حاصل کردہ نمبر", "res.out": "کل نمبر", "res.print": "نتیجہ پرنٹ کریں",
@@ -160,14 +171,25 @@
       "gal.title": "مدرسے کی زندگی", "gal.sub": "تعلیم، مدرسے کی روزمرہ زندگی اور خوشگوار لمحات کی جھلکیاں۔",
       "gal.g1": "قرآن کلاس", "gal.g2": "عمارت", "gal.g3": "سالانہ تقریب", "gal.g4": "امتحان ہال", "gal.g5": "طلبہ", "gal.g6": "تکمیلِ حفظ",
       "con.title": "رابطہ کریں", "con.addrT": "پتہ", "con.addr": "گرگری، پاکستان", "con.phoneT": "فون اور واٹس ایپ",
-      "con.emailT": "ای میل",
+      "con.emailT": "ای میل", "con.phonePending": "رابطہ نمبر شامل ہونا باقی ہے", "con.emailPending": "ای میل شامل ہونا باقی ہے",
       "con.hoursT": "دفتری اوقات", "con.hours": "ہفتہ تا جمعرات، صبح 8 بجے سے دوپہر 2 بجے", "con.map": "یہاں نقشہ آئے گا (گوگل میپ)",
       "con.formT": "پیغام بھیجیں", "con.name": "آپ کا نام", "con.phone": "موبائل نمبر", "con.topic": "موضوع", "con.msg": "پیغام", "con.send": "پیغام بھیجیں",
       "con.t1": "داخلہ", "con.t2": "فیس", "con.t3": "نتائج", "con.t4": "دیگر",
       "con.ok": "یہ صرف نمونہ ہے؛ آپ کا پیغام نہیں بھیجا گیا۔ پیغام وصول کرنے کے لیے فارم سروس جوڑیں۔",
       "con.err": "براہ کرم نام، موبائل نمبر اور پیغام لکھیں۔",
       "foot.about": "قرآن، کردار اور علم، ایک ہی جگہ۔", "foot.links": "اہم روابط", "foot.portals": "پورٹلز",
-      "foot.copy": "© 2026 مدرسہ دارِ ارقم گرگری۔ جملہ حقوق محفوظ ہیں۔"
+      "foot.copy": "© 2026 مدرسہ دارِ ارقم گرگری۔ جملہ حقوق محفوظ ہیں۔",
+      "hub.eyebrow": "معلومات و رہنمائی", "hub.title": "تعلیمی و رہنمائی مرکز",
+      "hub.sub": "داخلہ، امتحان، نتائج اور مستند دینی مطالعے کے اہم روابط ایک جگہ تلاش کریں۔",
+      "hub.searchLabel": "معلومات تلاش کریں", "hub.searchPlaceholder": "مثلاً داخلہ، نتیجہ، کتابیں",
+      "hub.admission": "داخلہ رہنمائی", "hub.admissionD": "شرائط اور درخواست کا طریقہ",
+      "hub.exam": "امتحان و اعلانات", "hub.examD": "تازہ نوٹس اور ڈیٹ شیٹ",
+      "hub.result": "نتائج", "hub.resultD": "رول نمبر کے ذریعے نتیجہ دیکھیں",
+      "hub.programs": "تعلیمی شعبے", "hub.programsD": "کورسز اور نصاب کا تعارف",
+      "hub.questions": "سوال و جواب اور دارالافتاء", "hub.questionsD": "جامعہ بنوری ٹاؤن کی عوامی علمی رہنمائی",
+      "hub.library": "کتب و علمی مضامین", "hub.libraryD": "مستند مطالعے کے لیے اشاعت و کتب کا گوشہ",
+      "hub.wifaq": "وفاق المدارس لاگ اِن", "hub.wifaqD": "مدارس کے لیے وفاق کا آفیشل پورٹل",
+      "hub.external": "بیرونی ویب سائٹ", "hub.empty": "اس تلاش سے متعلق کوئی معلومات نہیں ملیں۔"
     }
   };
 
@@ -250,6 +272,8 @@
     $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
     $$("[data-i18n-alt]").forEach(el => { el.alt = t(el.dataset.i18nAlt); });
     $$("[data-i18n-aria-label]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel)); });
+    $$("[data-i18n-placeholder]").forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
+    filterResources();
     document.title = t("hero.title");
     $("#langToggle").textContent = isUr ? "English" : "اردو";
 
@@ -286,6 +310,20 @@
     els.forEach(el => io.observe(el));
   }
 
+  function filterResources() {
+    const input = $("#resourceSearch");
+    if (!input) return;
+    const query = input.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    $$("[data-resource-item]").forEach(item => {
+      const haystack = `${item.textContent} ${item.dataset.keywords || ""}`.toLocaleLowerCase();
+      const match = !query || haystack.includes(query);
+      item.hidden = !match;
+      if (match) visible++;
+    });
+    $("#resourceEmpty").hidden = visible !== 0;
+  }
+
   /* ---------- Events ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     let saved = "ur";
@@ -293,7 +331,14 @@
     applyLang(saved === "en" ? "en" : "ur");
     animateCounters();
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const carousel = $("#heroCarousel");
+      carousel.dataset.bsRide = "false";
+      bootstrap.Carousel.getOrCreateInstance(carousel).pause();
+    }
+
     $("#langToggle").addEventListener("click", () => applyLang(lang === "en" ? "ur" : "en"));
+    $("#resourceSearch").addEventListener("input", filterResources);
     $("#printSheet").addEventListener("click", () => window.print());
 
     // Result lookup (demo)
