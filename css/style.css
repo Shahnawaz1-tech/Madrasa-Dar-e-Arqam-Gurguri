@@ -501,6 +501,159 @@ html[lang="en"] .about-bento__card { direction:ltr; text-align:left; }
   .teacher-cta { width:100%; }
 }
 
+/* ---------- Premium glass theme ---------- */
+:root {
+  --green-900:#103c2b;
+  --green-800:#164b34;
+  --green-700:#216443;
+  --green-100:#e7f0e8;
+  --gold-600:#98752c;
+  --gold-400:#e9c86d;
+  --gold-100:#f8f1de;
+  --ivory:#faf9f3;
+  --paper:rgba(255,255,255,.72);
+  --ink:#172b21;
+  --muted:#607167;
+  --line:rgba(26,76,51,.14);
+  --radius:22px;
+  --glass:rgba(255,255,255,.66);
+  --glass-edge:rgba(255,255,255,.82);
+  --shadow-soft:0 18px 48px rgba(24,65,44,.09);
+  --shadow-hover:0 24px 60px rgba(24,65,44,.16), 0 0 26px rgba(234,202,109,.17);
+}
+
+html { scroll-behavior:smooth; }
+body {
+  background-color:var(--ivory);
+  background-image:
+    radial-gradient(ellipse at 8% 10%, rgba(241,210,121,.19), transparent 30rem),
+    radial-gradient(ellipse at 92% 26%, rgba(82,154,103,.11), transparent 34rem),
+    radial-gradient(ellipse at 52% 76%, rgba(241,210,121,.12), transparent 38rem);
+  background-attachment:fixed;
+}
+::selection { color:var(--green-900); background:rgba(233,200,109,.52); }
+:focus-visible { outline:3px solid var(--gold-600); outline-offset:3px; }
+
+/* Keep the page background visible through the sections. */
+.about-section, .teachers-section, .prog-section, .resource-section,
+.gal-section, #admissions, #results, #contact { background-color:transparent; }
+.about-section, .teachers-section, .prog-section, .resource-section,
+.gal-section, #admissions, #results, #contact { position:relative; }
+.section-alt { background:rgba(255,255,255,.36); border-color:rgba(255,255,255,.62); }
+.section-title { color:var(--green-900); }
+.section-sub { color:var(--muted); }
+
+/* Glass navigation and controls */
+.topbar { background:linear-gradient(100deg, var(--green-900), #1c5439); border-bottom:1px solid rgba(233,200,109,.28); }
+.navbar {
+  background:rgba(250,250,246,.78);
+  border-bottom:1px solid rgba(255,255,255,.82);
+  box-shadow:0 8px 30px rgba(20,58,39,.055);
+  backdrop-filter:blur(18px) saturate(145%);
+  -webkit-backdrop-filter:blur(18px) saturate(145%);
+}
+.navbar.scrolled { background:rgba(250,250,246,.9); box-shadow:0 12px 34px rgba(20,58,39,.11); }
+.nav-link { transition:color .22s ease, background-color .22s ease, box-shadow .22s ease; }
+.nav-link:hover, .nav-link.active { background:rgba(231,240,232,.86); box-shadow:inset 0 0 0 1px rgba(33,100,67,.08); }
+.dropdown-menu { border:1px solid var(--glass-edge); border-radius:16px; background:rgba(255,255,255,.86); box-shadow:var(--shadow-soft); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+.dropdown-item { border-radius:9px; transition:background-color .18s ease, color .18s ease; }
+.dropdown-item:hover, .dropdown-item:focus { background:var(--green-100); color:var(--green-900); }
+.btn { border-radius:12px; transition:transform .22s ease, box-shadow .22s ease, background-color .22s ease, border-color .22s ease, color .22s ease; }
+.btn-green { background:linear-gradient(135deg,#24734b,var(--green-900)); border-color:var(--green-700); box-shadow:0 8px 20px rgba(33,100,67,.2); }
+.btn-green:hover, .btn-green:focus { transform:translateY(-2px); box-shadow:0 12px 26px rgba(33,100,67,.28),0 0 20px rgba(233,200,109,.2); }
+.btn-gold { background:linear-gradient(135deg,#f2d98d,var(--gold-400)); border-color:var(--gold-400); box-shadow:0 8px 20px rgba(188,148,57,.18); }
+.btn-gold:hover { transform:translateY(-2px); box-shadow:0 12px 26px rgba(188,148,57,.26),0 0 22px rgba(233,200,109,.3); }
+.btn-outline-green { border-color:rgba(33,100,67,.52); background:rgba(255,255,255,.35); }
+.btn-outline-green:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(33,100,67,.16),0 0 20px rgba(233,200,109,.22); }
+
+/* Warm light with a subtle green glow in the hero */
+.hero-overlay { background:radial-gradient(ellipse at 12% 18%,rgba(233,200,109,.22),transparent 34%),linear-gradient(120deg,rgba(8,35,23,.74),rgba(15,60,42,.44) 62%,rgba(11,40,28,.36)); }
+.hero-badge { color:#fff8dc; background:rgba(233,200,109,.2); border-color:rgba(244,220,148,.72); box-shadow:0 0 24px rgba(233,200,109,.16); backdrop-filter:blur(8px); }
+.hero h1 { text-shadow:0 5px 30px rgba(0,0,0,.34),0 0 28px rgba(233,200,109,.12); }
+.hero .btn-outline-light { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.72); backdrop-filter:blur(8px); }
+.hero .btn-outline-light:hover { background:rgba(255,255,255,.18); box-shadow:0 0 24px rgba(255,255,255,.18); }
+
+/* Cards and panels share one translucent surface language. */
+.about-card, .about-ayah-card, .about-img-strip, .teacher-visual, .teacher-detail,
+.prog-card, .panel, .result-box, .result-card, .resource-card, .admission-card,
+.contact-line .ico, .map-box {
+  border-radius:var(--radius);
+  box-shadow:var(--shadow-soft);
+  transition:transform .28s cubic-bezier(.2,.75,.25,1), box-shadow .28s ease, border-color .28s ease, background-color .28s ease;
+}
+.about-card--gold, .teacher-detail, .resource-card, .panel, .result-box, .result-card {
+  background:var(--glass);
+  border-color:var(--glass-edge);
+  backdrop-filter:blur(14px) saturate(135%);
+  -webkit-backdrop-filter:blur(14px) saturate(135%);
+}
+.about-card--green, .about-ayah-card, .prog-card--accent { border:1px solid rgba(255,255,255,.13); box-shadow:0 18px 44px rgba(11,47,31,.2); }
+.about-card--gold { background:rgba(255,255,255,.57); border:1px solid rgba(222,193,111,.42); }
+.about-card__icon, .teacher-detail__icon, .resource-icon { box-shadow:inset 0 1px 0 rgba(255,255,255,.72); }
+.about-ayah-card { background:linear-gradient(145deg,rgba(24,82,55,.97),rgba(12,57,39,.98)); border:1px solid rgba(255,255,255,.16); }
+.about-img-strip, .teacher-visual { border:1px solid rgba(255,255,255,.8); box-shadow:0 20px 48px rgba(24,65,44,.12),0 0 30px rgba(233,200,109,.13); }
+.teacher-visual { background:rgba(248,241,222,.76); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+.prog-card { background:rgba(255,255,255,.61); border-color:rgba(255,255,255,.84); backdrop-filter:blur(14px) saturate(135%); -webkit-backdrop-filter:blur(14px) saturate(135%); }
+.prog-card--accent { background:linear-gradient(145deg,rgba(27,83,57,.98),rgba(13,55,38,.98)); }
+.admission-card { background:linear-gradient(145deg,rgba(255,252,240,.82),rgba(244,236,216,.72)); border-color:rgba(222,193,111,.55); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
+.panel h3, .teacher-detail h3 { color:var(--green-900); }
+.notice-item { border-color:rgba(31,80,54,.12); }
+.date-chip { border:1px solid rgba(233,200,109,.45); background:rgba(248,241,222,.75); box-shadow:0 5px 16px rgba(188,148,57,.12); }
+.table thead th { background:linear-gradient(100deg,var(--green-800),var(--green-900)); border-color:var(--green-800); }
+.result-card { border:1px solid rgba(33,100,67,.28); }
+.result-card .head { border-color:rgba(233,200,109,.75); }
+.resource-section { background:rgba(255,255,255,.34); }
+.resource-card { background:rgba(255,255,255,.58); border-color:rgba(255,255,255,.84); }
+.resource-search .form-control { background:rgba(255,255,255,.68); border-color:rgba(255,255,255,.9); box-shadow:0 12px 30px rgba(24,65,44,.07); backdrop-filter:blur(12px); }
+.resource-icon { background:rgba(231,240,232,.82); }
+
+/* Glow accents and smooth, restrained motion */
+@media (prefers-reduced-motion:no-preference) {
+  .about-card:hover, .about-ayah-card:hover, .teacher-visual:hover,
+  .teacher-detail:hover, .prog-card:hover, .panel:hover, .resource-card:hover,
+  .admission-card:hover, .result-box:hover {
+    transform:translateY(-4px);
+    box-shadow:var(--shadow-hover);
+  }
+  .resource-card:hover, .teacher-detail:hover { border-color:rgba(233,200,109,.62); }
+  .gal-thumb:hover { box-shadow:0 18px 38px rgba(14,56,38,.25),0 0 24px rgba(233,200,109,.24); }
+}
+.about-bento__quote, .about-bento__campus, .stat, .resource-card, .teacher-detail { backdrop-filter:blur(14px) saturate(135%); -webkit-backdrop-filter:blur(14px) saturate(135%); }
+.stats::after { background:rgba(250,249,243,.59); }
+.stat { background:rgba(255,255,255,.62); border-color:rgba(255,255,255,.88); box-shadow:0 12px 30px rgba(24,65,44,.1),0 0 20px rgba(233,200,109,.12); }
+.stat .num { color:var(--green-900); text-shadow:0 0 18px rgba(233,200,109,.28); }
+.gal-section { background:rgba(255,255,255,.28); }
+.gal-filter { background:rgba(255,255,255,.54); border-color:rgba(255,255,255,.85); backdrop-filter:blur(10px); }
+.gal-filter.active { background:var(--green-800); border-color:var(--green-800); box-shadow:0 0 20px rgba(33,100,67,.22); }
+.gal-thumb { border:1px solid rgba(255,255,255,.64); box-shadow:0 14px 34px rgba(24,65,44,.14); }
+.gal-zoom { box-shadow:0 0 18px rgba(233,200,109,.22); }
+.contact-line .ico { background:rgba(231,240,232,.78); border:1px solid rgba(255,255,255,.85); box-shadow:0 8px 20px rgba(24,65,44,.08); }
+.form-control, .form-select { background-color:rgba(255,255,255,.74); border-color:rgba(35,83,57,.17); border-radius:12px; backdrop-filter:blur(8px); }
+.form-control:focus, .form-select:focus { border-color:var(--green-700); background-color:rgba(255,255,255,.9); box-shadow:0 0 0 .2rem rgba(33,100,67,.12),0 0 18px rgba(233,200,109,.2); }
+.map-box { background:rgba(231,240,232,.47); border-color:rgba(255,255,255,.82); backdrop-filter:blur(10px); }
+
+/* Deep footer balances the bright, glassy surfaces above. */
+footer { background:linear-gradient(130deg,#0d3828,#164b34 65%,#103c2b); border-top:1px solid rgba(233,200,109,.35); box-shadow:0 -18px 45px rgba(22,75,52,.08); }
+footer a { transition:color .2s ease, text-shadow .2s ease; }
+footer a:hover { color:#f5dc94; text-shadow:0 0 16px rgba(233,200,109,.28); }
+footer .logo-chip { background:rgba(255,255,255,.9); box-shadow:0 8px 24px rgba(0,0,0,.1); }
+#toTop { background:linear-gradient(145deg,#2c8053,var(--green-900)); border:1px solid rgba(255,255,255,.42); box-shadow:0 10px 26px rgba(14,56,38,.28),0 0 18px rgba(233,200,109,.23); transition:transform .2s ease,box-shadow .2s ease; }
+#toTop:hover { transform:translateY(-3px); box-shadow:0 14px 32px rgba(14,56,38,.34),0 0 24px rgba(233,200,109,.32); }
+
+@supports not ((backdrop-filter:blur(1px))) {
+  .navbar, .dropdown-menu, .about-card--gold, .teacher-detail, .teacher-visual,
+  .prog-card, .panel, .result-box, .result-card, .resource-card, .admission-card,
+  .stat, .gal-filter, .form-control, .form-select, .map-box { background-color:rgba(255,255,255,.94); }
+}
+@media (max-width: 767.98px) {
+  body { background-attachment:scroll; }
+  .about-card, .about-ayah-card, .teacher-detail, .resource-card, .panel, .prog-card { border-radius:18px; }
+  .stats::after { background:rgba(250,249,243,.66); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+
 @media (max-width: 575.98px) {
   .about-card { padding: 1.2rem 1rem; }
   .about-ayah-card { padding: 1.5rem 1.2rem; }
@@ -862,3 +1015,62 @@ html { scroll-padding-top: 92px; }
 #admissions .admission-card .btn { min-height:50px; border-radius:12px; box-shadow:0 8px 18px rgba(18,58,39,.14); }
 @media (max-width:991.98px) { #admissions .admission-card { margin-top:.5rem; } }
 @media (max-width:575.98px) { #admissions .step { padding-bottom:1.25rem; } #admissions .step .n { flex-basis:38px; width:38px; height:38px; } #admissions .step:not(:last-child)::after { inset-inline-start:17px; inset-block-start:38px; } #admissions .admission-card { border-radius:20px; } }
+
+/* Final glass theme overrides: keep the design consistent across the whole page. */
+body { background-color:var(--ivory); background-image:radial-gradient(ellipse at 8% 10%,rgba(241,210,121,.19),transparent 30rem),radial-gradient(ellipse at 92% 26%,rgba(82,154,103,.11),transparent 34rem),radial-gradient(ellipse at 52% 76%,rgba(241,210,121,.12),transparent 38rem); background-attachment:fixed; }
+.about-section,.teachers-section,.prog-section,.resource-section,.gal-section,#admissions,#results,#contact { background-color:transparent; }
+.prog-section,.resource-section,.gal-section { background-color:rgba(255,255,255,.3); }
+.prog-card:not(.prog-card--accent),.panel,.result-box,.result-card,.resource-card,.teacher-detail { background:rgba(255,255,255,.64); border:1px solid rgba(255,255,255,.86); backdrop-filter:blur(14px) saturate(135%); -webkit-backdrop-filter:blur(14px) saturate(135%); box-shadow:var(--shadow-soft); }
+.prog-card--accent,.about-ayah-card { background:linear-gradient(145deg,rgba(27,83,57,.98),rgba(13,55,38,.98)); }
+.about-card--gold { background:rgba(255,255,255,.62); border-color:rgba(222,193,111,.5); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+.teacher-visual,.about-img-strip { border:1px solid rgba(255,255,255,.84); box-shadow:var(--shadow-soft),0 0 26px rgba(233,200,109,.14); }
+.admission-card { background:linear-gradient(145deg,rgba(255,252,240,.86),rgba(244,236,216,.76)); border-color:rgba(222,193,111,.55); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+.resource-section { background-color:rgba(255,255,255,.32); }
+.navbar { background:rgba(250,250,246,.82); backdrop-filter:blur(18px) saturate(145%); -webkit-backdrop-filter:blur(18px) saturate(145%); }
+.dropdown-menu { background:rgba(255,255,255,.9); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
+.stats::after { background:rgba(250,249,243,.58); }
+.stat { background:rgba(255,255,255,.62); border:1px solid rgba(255,255,255,.88); border-radius:18px; box-shadow:0 12px 30px rgba(24,65,44,.1),0 0 20px rgba(233,200,109,.12); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); }
+.stat .num { color:var(--green-900); text-shadow:0 0 18px rgba(233,200,109,.28); }
+.form-control,.form-select { background-color:rgba(255,255,255,.78); border-radius:12px; backdrop-filter:blur(8px); }
+@media (prefers-reduced-motion:no-preference) {
+  .about-card,.about-ayah-card,.teacher-visual,.teacher-detail,.prog-card,.panel,.resource-card,.admission-card,.result-box { transition:transform .28s cubic-bezier(.2,.75,.25,1),box-shadow .28s ease,border-color .28s ease; }
+  .about-card:hover,.about-ayah-card:hover,.teacher-visual:hover,.teacher-detail:hover,.prog-card:hover,.panel:hover,.resource-card:hover,.admission-card:hover,.result-box:hover { transform:translateY(-4px); box-shadow:var(--shadow-hover); }
+}
+@media (max-width:767.98px) { body { background-attachment:scroll; } .stats::after { background:rgba(250,249,243,.67); } }
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition-duration:.01ms!important; animation-duration:.01ms!important; } }
+
+/* Teacher profile: portrait on the left, complete teaching details on the right. */
+.teacher-heading { margin:0 auto 2rem; max-width:54rem; }
+.teacher-heading .teacher-intro { margin:0 auto; }
+.teacher-profile { display:grid; grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr); gap:clamp(1.2rem,3vw,2.5rem); align-items:stretch; padding:clamp(1rem,2.4vw,2rem); border:1px solid rgba(255,255,255,.86); border-radius:28px; background:rgba(255,255,255,.42); box-shadow:0 24px 70px rgba(24,65,44,.1),0 0 34px rgba(233,200,109,.1); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); }
+.teacher-profile__portrait { display:flex; flex-direction:column; min-width:0; }
+.teacher-profile__portrait .teacher-visual { flex:1; min-height:340px; margin:0; border-radius:22px 22px 0 0; border-bottom:0; box-shadow:none; }
+.teacher-profile__portrait .teacher-visual img { width:min(100%,360px); max-height:340px; }
+.teacher-profile__portrait .teacher-visual__caption { min-height:48px; }
+.teacher-profile__identity { padding:1.25rem 1.4rem 1.35rem; border:1px solid rgba(255,255,255,.12); border-radius:0 0 22px 22px; background:linear-gradient(145deg,#174d35,#103c2b); color:#fff; }
+.teacher-profile__eyebrow { display:block; color:var(--gold-600); font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.teacher-profile__identity .teacher-profile__eyebrow { color:#ead18a; }
+.teacher-profile__identity h3 { margin:.3rem 0 .45rem; color:#fff; font-size:clamp(1.2rem,2vw,1.65rem); }
+.teacher-profile__identity p { display:flex; align-items:center; gap:.5rem; margin:0; color:rgba(255,255,255,.77); }
+.teacher-profile__identity p i { color:var(--gold-400); }
+.teacher-profile__content { align-self:center; padding:.5rem clamp(.25rem,1.4vw,1rem); }
+.teacher-profile__topline { display:flex; justify-content:space-between; align-items:flex-start; gap:1rem; margin-bottom:1rem; }
+.teacher-profile__topline h3 { margin:.28rem 0 0; color:var(--green-900); font-size:clamp(1.35rem,2.2vw,1.85rem); }
+.teacher-profile__badge { display:inline-flex; align-items:center; gap:.4rem; flex:0 0 auto; padding:.48rem .75rem; border:1px solid rgba(33,100,67,.14); border-radius:999px; background:rgba(231,240,232,.75); color:var(--green-800); font-size:.78rem; font-weight:700; }
+.teacher-profile__badge i { color:var(--gold-600); }
+.teacher-profile__summary { margin:0 0 1.15rem; color:var(--muted); line-height:1.8; }
+.teacher-profile__facts { display:grid; gap:.65rem; }
+.teacher-fact { display:flex; align-items:flex-start; gap:.8rem; padding:.85rem .9rem; border:1px solid rgba(255,255,255,.9); border-radius:15px; background:rgba(255,255,255,.58); }
+.teacher-fact__icon { display:grid; place-items:center; flex:0 0 40px; width:40px; height:40px; border-radius:12px; background:rgba(231,240,232,.88); color:var(--green-700); font-size:1.05rem; }
+.teacher-fact h4 { margin:.05rem 0 .2rem; color:var(--green-900); font-size:.93rem; font-weight:750; }
+.teacher-fact p { margin:0; color:var(--muted); font-size:.9rem; line-height:1.65; }
+.teacher-fact--contact { background:rgba(248,241,222,.56); border-color:rgba(222,193,111,.32); }
+.teacher-fact--contact .teacher-fact__icon { background:rgba(233,200,109,.24); color:var(--gold-600); }
+.teacher-profile__note { display:flex; align-items:flex-start; gap:.55rem; margin:1rem 0 0; color:var(--muted); font-size:.78rem; line-height:1.6; }
+.teacher-profile__note i { flex:0 0 auto; margin-top:.15em; color:var(--gold-600); }
+.teacher-profile .teacher-cta { margin-top:1rem; }
+html[lang="ur"] .teacher-profile__eyebrow { letter-spacing:0; text-transform:none; }
+html[lang="ur"] .teacher-profile__badge { font-size:.84rem; }
+@media (max-width:991.98px) { .teacher-profile { grid-template-columns:minmax(230px,.7fr) minmax(0,1.3fr); gap:1.25rem; } .teacher-profile__topline { flex-direction:column; } }
+@media (max-width:767.98px) { .teacher-profile { grid-template-columns:1fr; max-width:620px; margin-inline:auto; } .teacher-profile__portrait .teacher-visual { min-height:300px; } .teacher-profile__content { padding:.5rem .2rem .2rem; } .teacher-profile__topline { flex-direction:row; } }
+@media (max-width:479.98px) { .teacher-profile { padding:.75rem; border-radius:22px; } .teacher-profile__portrait .teacher-visual { min-height:260px; } .teacher-profile__topline { flex-direction:column; } .teacher-profile .teacher-cta { width:100%; } }
