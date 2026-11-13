@@ -27,8 +27,8 @@
 <!-- Top bar -->
 <div class="topbar d-none d-md-block">
   <div class="container d-flex justify-content-between py-1">
-    <span data-i18n="con.phonePending">رابطہ نمبر شامل ہونا باقی ہے</span>
-    <span data-i18n="con.emailPending">ای میل شامل ہونا باقی ہے</span>
+    <a href="tel:+923349798988" dir="ltr" data-i18n="con.phoneValue">00923349798988</a>
+    <a href="mailto:qarimuhammadarif988@gmail.com" dir="ltr" data-i18n="con.emailValue">qarimuhammadarif988@gmail.com</a>
   </div>
 </div>
 
@@ -235,7 +235,7 @@
           <div class="teacher-fact"><span class="teacher-fact__icon"><i class="bi bi-journal-bookmark" aria-hidden="true"></i></span><div><h4 data-i18n="teacher.classesLabel">Classes taught</h4><p data-i18n="teacher.classes">Nazra · Hifz · Tajweed · Dars-e-Nizami</p></div></div>
           <div class="teacher-fact"><span class="teacher-fact__icon"><i class="bi bi-book-half" aria-hidden="true"></i></span><div><h4 data-i18n="teacher.subjectsLabel">Subjects</h4><p data-i18n="teacher.subjects">Quran, Hadith, Fiqh, Arabic, Urdu, English &amp; Mathematics</p></div></div>
           <div class="teacher-fact"><span class="teacher-fact__icon"><i class="bi bi-people" aria-hidden="true"></i></span><div><h4 data-i18n="teacher.supportLabel">Student &amp; parent support</h4><p data-i18n="teacher.support">Progress follow-up, attendance, assessments and parent meetings.</p></div></div>
-          <div class="teacher-fact teacher-fact--contact"><span class="teacher-fact__icon"><i class="bi bi-telephone" aria-hidden="true"></i></span><div><h4 data-i18n="teacher.phoneLabel">Phone / WhatsApp</h4><p data-i18n="teacher.phonePending">School contact number will be added</p></div></div>
+          <div class="teacher-fact teacher-fact--contact"><span class="teacher-fact__icon"><i class="bi bi-telephone" aria-hidden="true"></i></span><div><h4 data-i18n="teacher.phoneLabel">Phone / WhatsApp</h4><p><a href="tel:+923349798988" dir="ltr" data-i18n="teacher.phoneValue">00923349798988</a></p></div></div>
         </div>
         <p class="teacher-profile__note"><i class="bi bi-info-circle" aria-hidden="true"></i><span data-i18n="teacher.profileNote">Individual teacher names, assigned classes and direct numbers can be added once confirmed by the madrasa.</span></p>
         <a href="#contact" class="btn btn-outline-green teacher-cta" data-i18n="teacher.cta">Ask about the teaching team</a>
@@ -552,8 +552,8 @@
         <h2 class="section-title" data-i18n="con.title">Contact us</h2>
         <hr class="rule">
         <div class="contact-line"><div class="ico"><i class="bi bi-geo-alt"></i></div><div><strong data-i18n="con.addrT">Address</strong><br><span data-i18n="con.addr">Gurguri, Pakistan</span></div></div>
-        <div class="contact-line"><div class="ico"><i class="bi bi-telephone"></i></div><div><strong data-i18n="con.phoneT">Phone and WhatsApp</strong><br><span data-i18n="con.phonePending">رابطہ نمبر شامل ہونا باقی ہے</span></div></div>
-        <div class="contact-line"><div class="ico"><i class="bi bi-envelope"></i></div><div><strong data-i18n="con.emailT">ای میل</strong><br><span data-i18n="con.emailPending">ای میل شامل ہونا باقی ہے</span></div></div>
+        <div class="contact-line"><div class="ico"><i class="bi bi-telephone"></i></div><div><strong data-i18n="con.phoneT">Phone and WhatsApp</strong><br><a href="tel:+923349798988" dir="ltr" data-i18n="con.phoneValue">00923349798988</a></div></div>
+        <div class="contact-line"><div class="ico"><i class="bi bi-envelope"></i></div><div><strong data-i18n="con.emailT">ای میل</strong><br><a href="mailto:qarimuhammadarif988@gmail.com" dir="ltr" data-i18n="con.emailValue">qarimuhammadarif988@gmail.com</a></div></div>
         <div class="contact-line"><div class="ico"><i class="bi bi-clock"></i></div><div><strong data-i18n="con.hoursT">Office hours</strong><br><span data-i18n="con.hours">Saturday to Thursday, 8:00 am to 2:00 pm</span></div></div>
         <div class="map-box mt-4"><div><i class="bi bi-map fs-2"></i><div data-i18n="con.map">Map goes here (Google Maps embed)</div></div></div>
       </div>
@@ -582,12 +582,12 @@
 <!-- Footer -->
 <footer>
   <div class="container">
-    <div class="row g-4">
-      <div class="col-md-5">
+    <div class="row g-4 footer-grid">
+      <div class="col-12 col-sm-6 col-lg-3">
         <span class="logo-chip mb-3"><img src="images/logo.png" alt="لوگو"></span>
         <p class="mt-2" data-i18n="foot.about">Quran, character and knowledge, in one place.</p>
       </div>
-      <div class="col-6 col-md-3">
+      <div class="col-6 col-lg-3">
         <h4 data-i18n="foot.links">Quick links</h4>
         <ul>
           <li><a href="#about" data-i18n="nav.about">About</a></li>
@@ -596,12 +596,19 @@
           <li><a href="#results" data-i18n="nav.results">Results</a></li>
         </ul>
       </div>
-      <div class="col-6 col-md-4">
+      <div class="col-6 col-lg-3">
         <h4 data-i18n="foot.portals">Portals</h4>
         <ul>
           <li><a href="#results" data-i18n="login.student">طالب علم نتائج</a></li>
           <li><a href="#results" data-i18n="login.parent">والدین نتائج</a></li>
           <li><a href="https://www.wifaqulmadaris.org/Account/MadarisLogin" target="_blank" rel="noopener noreferrer" data-i18n="login.wifaq">وفاق المدارس لاگ اِن</a></li>
+        </ul>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <h4 data-i18n="foot.contact">Contact</h4>
+        <ul class="footer-contact-list">
+          <li><a href="tel:+923349798988"><i class="bi bi-telephone" aria-hidden="true"></i><span dir="ltr" data-i18n="con.phoneValue">00923349798988</span></a></li>
+          <li><a href="mailto:qarimuhammadarif988@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i><span dir="ltr" data-i18n="con.emailValue">qarimuhammadarif988@gmail.com</span></a></li>
         </ul>
       </div>
     </div>

@@ -906,7 +906,7 @@ html[lang="ur"] .notice-item h3 { font-family: var(--font-urdu); }
 }
 
 /* Footer */
-footer { background: var(--green-900); color: #cfdad2; padding: 3rem 0 1.2rem; }
+footer { background: var(--green-900); color: #cfdad2; padding: 2.5rem 0 1rem; }
 footer h4 { color: #fff; font-size: 1.05rem; font-family: var(--font-body); font-weight: 700; }
 html[lang="ur"] footer h4 { font-family: var(--font-urdu); }
 footer a { color: #cfdad2; text-decoration: none; }
@@ -915,7 +915,19 @@ footer ul { list-style: none; padding: 0; margin: 0; }
 footer li { margin-bottom: .35rem; }
 footer .logo-chip { background: var(--ivory); border-radius: 10px; padding: .4rem; display: inline-block; }
 footer .logo-chip img { height: 64px; mix-blend-mode: multiply; }
-.copy { border-top: 1px solid rgba(255,255,255,.14); margin-top: 2rem; padding-top: 1rem; font-size: .875rem; }
+footer .footer-grid > div { min-width: 0; }
+footer .footer-contact-list { display: grid; gap: .55rem; }
+footer .footer-contact-list li { margin: 0; }
+footer .footer-contact-list a { display: flex; align-items: flex-start; gap: .6rem; min-width: 0; }
+footer .footer-contact-list i { flex: 0 0 1.1rem; }
+footer .footer-contact-list span { overflow-wrap: anywhere; }
+.copy { border-top: 1px solid rgba(255,255,255,.14); margin-top: 1.5rem; padding-top: 1rem; font-size: .875rem; }
+
+@media (max-width: 575.98px) {
+  footer { padding-top: 2rem; }
+  footer .footer-grid { --bs-gutter-y: 1.5rem; }
+  footer .footer-contact-list a { gap: .45rem; }
+}
 
 /* Back to top */
 #toTop {
