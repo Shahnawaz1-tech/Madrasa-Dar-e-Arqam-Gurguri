@@ -234,6 +234,18 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
+  const pageLoader = $("#pageLoader");
+  const pageLoaderStartedAt = performance.now();
+  window.addEventListener("load", () => {
+    if (!pageLoader) return;
+    const delay = Math.max(0, 500 - (performance.now() - pageLoaderStartedAt));
+    window.setTimeout(() => {
+      pageLoader.classList.add("is-hidden");
+      pageLoader.setAttribute("aria-hidden", "true");
+      window.setTimeout(() => pageLoader.remove(), 400);
+    }, delay);
+  }, { once: true });
+
   /* ---------- Rendering helpers ---------- */
   function renderNotices() {
     $("#noticeList").innerHTML = NOTICES.map(n => `
