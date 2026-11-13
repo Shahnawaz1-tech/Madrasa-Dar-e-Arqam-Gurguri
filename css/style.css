@@ -374,6 +374,133 @@ section { padding: 4.5rem 0; }
   letter-spacing: .04em;
 }
 
+/* Three-column introduction bento, adapted for Urdu reading order. */
+.about-bento {
+  display: grid;
+  direction: ltr;
+  grid-template-columns: 1.18fr .88fr .88fr;
+  grid-template-rows: repeat(2, minmax(210px, 1fr));
+  grid-template-areas:
+    "quote character quran"
+    "campus students skills";
+  gap: 1rem;
+}
+.about-bento__quran { grid-area: quran; }
+.about-bento__character { grid-area: character; }
+.about-bento__skills { grid-area: skills; }
+.about-bento__students { grid-area: students; }
+.about-bento__quote { grid-area: quote; height:100%; padding:1.55rem 1.5rem; border-radius:14px; }
+.about-bento__campus { grid-area: campus; height:100%; min-height:210px; }
+.about-bento__card { display:flex; flex-direction:column; justify-content:center; padding:1.5rem; }
+.about-bento__card .about-card__icon { margin-bottom:.85rem; }
+.about-bento__card h3 { margin-bottom:.35rem; }
+.about-bento__card p { line-height:1.8; }
+.about-ayah-card__deco { width:1em; height:1em; }
+.about-ayah-card h3 { color:#fff; font-size:1.02rem; margin-bottom:.45rem; }
+.about-bento__quote .ayah { font-size:1.28rem; line-height:2; }
+.about-bento__quote p { line-height:1.8; }
+html[lang="ur"] .about-bento__card { direction:rtl; text-align:right; }
+html[lang="en"] .about-bento__card { direction:ltr; text-align:left; }
+@media (max-width: 991.98px) {
+  .about-bento {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-rows:repeat(3,minmax(190px,auto));
+    grid-template-areas:
+      "quran character"
+      "skills students"
+      "quote campus";
+  }
+}
+@media (max-width: 575.98px) {
+  .about-bento {
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:none;
+    grid-template-areas:
+      "quran"
+      "character"
+      "skills"
+      "students"
+      "quote"
+      "campus";
+    gap:.8rem;
+  }
+  .about-bento__card { min-height:175px; padding:1.25rem; }
+  .about-bento__quote { min-height:210px; }
+  .about-bento__campus { min-height:190px; }
+}
+
+/* Detailed teaching-team section */
+.teachers-section {
+  padding:4.5rem 0;
+  background:var(--paper);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.teacher-visual {
+  position:relative;
+  display:grid;
+  place-items:center;
+  min-height:360px;
+  padding:1.25rem 1.25rem 3.5rem;
+  overflow:hidden;
+  border:1px solid rgba(160,127,51,.3);
+  border-radius:24px;
+  background:var(--gold-100);
+}
+.teacher-visual img { display:block; width:min(100%,340px); max-height:320px; object-fit:contain; }
+.teacher-visual__caption {
+  position:absolute;
+  inset-inline:0;
+  inset-block-end:0;
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  min-height:54px;
+  padding:.65rem 1.1rem;
+  background:var(--green-900);
+  color:#edf3ee;
+  font-size:.88rem;
+}
+.teacher-visual__caption i { color:var(--gold-400); font-size:1.1rem; }
+.teacher-intro { max-width:55rem; margin:0 0 1.5rem; color:var(--muted); line-height:1.9; }
+.teacher-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+.teacher-detail {
+  display:flex;
+  align-items:flex-start;
+  gap:.8rem;
+  min-height:116px;
+  padding:1rem;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:var(--ivory);
+}
+.teacher-detail__icon {
+  display:grid;
+  place-items:center;
+  flex:0 0 40px;
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:var(--green-100);
+  color:var(--green-700);
+  font-size:1.1rem;
+}
+.teacher-detail h3 { margin:0 0 .3rem; font-size:1rem; line-height:1.6; }
+.teacher-detail p { margin:0; color:var(--muted); font-size:.88rem; line-height:1.7; }
+.teacher-cta { margin-top:1.25rem; }
+@media (max-width: 991.98px) {
+  .teacher-visual { min-height:300px; }
+  .teacher-visual img { max-height:260px; }
+}
+@media (max-width: 575.98px) {
+  .teachers-section { padding:3.5rem 0; }
+  .teacher-visual { min-height:270px; }
+  .teacher-visual img { max-height:225px; }
+  .teacher-detail-grid { grid-template-columns:1fr; }
+  .teacher-detail { min-height:unset; }
+  .teacher-cta { width:100%; }
+}
+
 @media (max-width: 575.98px) {
   .about-card { padding: 1.2rem 1rem; }
   .about-ayah-card { padding: 1.5rem 1.2rem; }

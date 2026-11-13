@@ -148,7 +148,6 @@
 
 <!-- About -->
 <section id="about" class="about-section">
-  <div class="about-bg-blob" aria-hidden="true"></div>
   <div class="container position-relative">
 
     <div class="row justify-content-center mb-5">
@@ -160,56 +159,86 @@
       </div>
     </div>
 
-    <div class="row g-4 align-items-stretch">
+    <div class="about-bento">
+      <article class="about-card about-card--green about-bento__card about-bento__quran">
+        <div class="about-card__icon"><i class="bi bi-book-half" aria-hidden="true"></i></div>
+        <h3 data-i18n="about.v1t">Quran First</h3>
+        <p data-i18n="about.v1d">Recitation, memorisation and understanding come before everything else.</p>
+      </article>
 
-      <div class="col-lg-7">
-        <div class="row g-3 h-100">
-          <div class="col-sm-6">
-            <div class="about-card about-card--green">
-              <div class="about-card__icon"><i class="bi bi-book-half"></i></div>
-              <h3 data-i18n="about.v1t">Quran First</h3>
-              <p data-i18n="about.v1d">Recitation, memorisation and understanding come before everything else.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="about-card about-card--gold">
-              <div class="about-card__icon"><i class="bi bi-heart"></i></div>
-              <h3 data-i18n="about.v2t">Character</h3>
-              <p data-i18n="about.v2d">Adab, honesty and respect are taught and practised daily.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="about-card about-card--gold">
-              <div class="about-card__icon"><i class="bi bi-mortarboard"></i></div>
-              <h3 data-i18n="about.v3t">Useful Skills</h3>
-              <p data-i18n="about.v3d">Languages, mathematics and computer basics prepare students for life.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="about-card about-card--green">
-              <div class="about-card__icon"><i class="bi bi-people"></i></div>
-              <h3 data-i18n="about.v4t">Every Student</h3>
-              <p data-i18n="about.v4d">Teachers track attendance, assignments and exams and keep parents informed.</p>
-            </div>
+      <article class="about-card about-card--gold about-bento__card about-bento__character">
+        <div class="about-card__icon"><i class="bi bi-heart" aria-hidden="true"></i></div>
+        <h3 data-i18n="about.v2t">Character</h3>
+        <p data-i18n="about.v2d">Adab, honesty and respect are taught and practised daily.</p>
+      </article>
+
+      <article class="about-card about-card--gold about-bento__card about-bento__skills">
+        <div class="about-card__icon"><i class="bi bi-mortarboard" aria-hidden="true"></i></div>
+        <h3 data-i18n="about.v3t">Useful Skills</h3>
+        <p data-i18n="about.v3d">Languages, mathematics and computer basics prepare students for life.</p>
+      </article>
+
+      <article class="about-card about-card--green about-bento__card about-bento__students">
+        <div class="about-card__icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+        <h3 data-i18n="about.v4t">Every Student</h3>
+        <p data-i18n="about.v4d">Teachers track attendance, assignments and exams and keep parents informed.</p>
+      </article>
+
+      <article class="about-ayah-card about-bento__quote">
+        <i class="bi bi-quote about-ayah-card__deco" aria-hidden="true"></i>
+        <p class="ayah" lang="ar" dir="rtl">اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِيْ خَلَقَ</p>
+        <h3 data-i18n="about.quoteT">Our First Lesson</h3>
+        <p class="mb-0" data-i18n="about.quote">“Read in the name of your Lord who created.” Learning begins with the Quran and grows from there.</p>
+      </article>
+
+      <div class="about-img-strip about-bento__campus">
+        <img src="images/hero-2.jpg" alt="" loading="lazy" decoding="async">
+        <div class="about-img-strip__overlay">
+          <span data-i18n="about.since">Est. 2005 · Gurguri</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaching team -->
+<section id="teachers" class="teachers-section" aria-labelledby="teachersTitle">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-5 order-lg-2">
+        <div class="teacher-visual">
+          <img src="images/hero-student.svg" alt="" loading="lazy" decoding="async">
+          <div class="teacher-visual__caption">
+            <i class="bi bi-book-half" aria-hidden="true"></i>
+            <span data-i18n="teacher.imageCaption">A teaching illustration</span>
           </div>
         </div>
       </div>
-
-      <div class="col-lg-5 d-flex flex-column gap-3">
-        <div class="about-ayah-card">
-          <div class="about-ayah-card__deco" aria-hidden="true">❝</div>
-          <p class="ayah" lang="ar" dir="rtl">اِقْرَأْ بِاسْمِ رَبِّكَ الَّذِيْ خَلَقَ</p>
-          <h4 data-i18n="about.quoteT">Our First Lesson</h4>
-          <p class="mb-0" data-i18n="about.quote">“Read in the name of your Lord who created.” Learning begins with the Quran and grows from there.</p>
+      <div class="col-lg-7 order-lg-1">
+        <span class="about-eyebrow" data-i18n="teacher.eyebrow">Our teaching team</span>
+        <h2 class="section-title mt-2" id="teachersTitle" data-i18n="teacher.title">اساتذہ — تعلیم اور رہنمائی</h2>
+        <hr class="rule">
+        <p class="teacher-intro" data-i18n="teacher.intro">ہمارے اساتذہ قرآن، دینی نصاب اور مفید عصری مضامین کی تعلیم کے ساتھ طلبہ کی روزانہ تعلیمی پیش رفت میں رہنمائی کرتے ہیں۔</p>
+        <div class="teacher-detail-grid">
+          <article class="teacher-detail">
+            <span class="teacher-detail__icon"><i class="bi bi-book-half" aria-hidden="true"></i></span>
+            <div><h3 data-i18n="teacher.quranTitle">قرآن، حفظ اور تجوید</h3><p data-i18n="teacher.quranText">ناظرہ، حفظ، درست تلفظ اور روزانہ دہرائی کے لیے منظم تدریس۔</p></div>
+          </article>
+          <article class="teacher-detail">
+            <span class="teacher-detail__icon"><i class="bi bi-journal-richtext" aria-hidden="true"></i></span>
+            <div><h3 data-i18n="teacher.darsTitle">دینی نصاب</h3><p data-i18n="teacher.darsText">درسِ نظامی، حدیث، فقہ اور عربی کی مرحلہ وار تعلیم۔</p></div>
+          </article>
+          <article class="teacher-detail">
+            <span class="teacher-detail__icon"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></span>
+            <div><h3 data-i18n="teacher.progressTitle">تعلیمی پیش رفت</h3><p data-i18n="teacher.progressText">حاضری، اسائنمنٹس اور امتحانات کے ذریعے طلبہ کی پیش رفت پر نظر۔</p></div>
+          </article>
+          <article class="teacher-detail">
+            <span class="teacher-detail__icon"><i class="bi bi-people" aria-hidden="true"></i></span>
+            <div><h3 data-i18n="teacher.familyTitle">والدین سے رابطہ</h3><p data-i18n="teacher.familyText">ضرورت کے مطابق سرپرستوں سے ملاقات اور طالب علم کی رہنمائی۔</p></div>
+          </article>
         </div>
-        <div class="about-img-strip">
-          <img src="images/hero-2.jpg" alt="مدرسے کی تصویر" loading="lazy">
-          <div class="about-img-strip__overlay">
-            <span data-i18n="about.since">Est. 2005 · Gurguri</span>
-          </div>
-        </div>
+        <a href="#contact" class="btn btn-outline-green teacher-cta" data-i18n="teacher.cta">اساتذہ سے معلومات لیں</a>
       </div>
-
     </div>
   </div>
 </section>
@@ -316,6 +345,7 @@
       <div class="col-sm-6 col-lg-3" data-resource-item data-keywords="exam date sheet timetable امتحان ڈیٹ شیٹ"><a class="resource-card" href="#notices"><span class="resource-icon"><i class="bi bi-calendar2-week"></i></span><strong data-i18n="hub.exam">امتحان و اعلانات</strong><span data-i18n="hub.examD">تازہ نوٹس اور ڈیٹ شیٹ</span></a></div>
       <div class="col-sm-6 col-lg-3" data-resource-item data-keywords="result marks roll number نتیجہ نمبر"><a class="resource-card" href="#results"><span class="resource-icon"><i class="bi bi-clipboard2-check"></i></span><strong data-i18n="hub.result">نتائج</strong><span data-i18n="hub.resultD">رول نمبر کے ذریعے نتیجہ دیکھیں</span></a></div>
       <div class="col-sm-6 col-lg-3" data-resource-item data-keywords="program courses hifz درس نظامی حفظ شعبہ"><a class="resource-card" href="#programs"><span class="resource-icon"><i class="bi bi-journal-richtext"></i></span><strong data-i18n="hub.programs">تعلیمی شعبے</strong><span data-i18n="hub.programsD">کورسز اور نصاب کا تعارف</span></a></div>
+      <div class="col-sm-6 col-lg-3" data-resource-item data-keywords="teacher teachers ustad asatiza teacher team استاد اساتذہ تدریس"><a class="resource-card" href="#teachers"><span class="resource-icon"><i class="bi bi-person-workspace"></i></span><strong data-i18n="hub.teachers">اساتذہ</strong><span data-i18n="hub.teachersD">تدریسی شعبے اور طلبہ کی رہنمائی</span></a></div>
       <div class="col-sm-6 col-lg-4" data-resource-item data-keywords="fatwa question answer darul ifta مسئلہ سوال جواب فتوی"><a class="resource-card resource-card--external" href="https://www.banuri.edu.pk/new-questions" target="_blank" rel="noopener noreferrer"><span class="resource-icon"><i class="bi bi-chat-square-text"></i></span><strong data-i18n="hub.questions">سوال و جواب اور دارالافتاء</strong><span data-i18n="hub.questionsD">جامعہ بنوری ٹاؤن کی عوامی علمی رہنمائی</span><small data-i18n="hub.external">بیرونی ویب سائٹ</small></a></div>
       <div class="col-sm-6 col-lg-4" data-resource-item data-keywords="books articles publications library کتب کتابیں مضامین"><a class="resource-card resource-card--external" href="https://www.banuri.edu.pk/books" target="_blank" rel="noopener noreferrer"><span class="resource-icon"><i class="bi bi-bookshelf"></i></span><strong data-i18n="hub.library">کتب و علمی مضامین</strong><span data-i18n="hub.libraryD">مستند مطالعے کے لیے اشاعت و کتب کا گوشہ</span><small data-i18n="hub.external">بیرونی ویب سائٹ</small></a></div>
       <div class="col-sm-6 col-lg-4" data-resource-item data-keywords="wifaq madaris login examination مدارس وفاق رجسٹریشن امتحانی پورٹل"><a class="resource-card resource-card--external" href="https://www.wifaqulmadaris.org/Account/MadarisLogin" target="_blank" rel="noopener noreferrer"><span class="resource-icon"><i class="bi bi-building-check"></i></span><strong data-i18n="hub.wifaq">وفاق المدارس لاگ اِن</strong><span data-i18n="hub.wifaqD">مدارس کے لیے وفاق کا آفیشل پورٹل</span><small data-i18n="hub.external">بیرونی ویب سائٹ <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></small></a></div>
