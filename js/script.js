@@ -8,7 +8,7 @@
   "use strict";
 
   /* ---------- Demo data ---------- */
-  const SITE_STATS = { clsStudents: 320, clsTeachers: 18, clsClasses: 12, clsDepts: 5 };
+  const SITE_STATS = { clsStudents: 480, clsTeachers: 10, clsClasses: 12, clsDepts: 5 };
 
   const NOTICES = [
     { d: "15", m: { en: "Nov", ur: "نومبر" }, t: { en: "Annual exam date sheet released", ur: "سالانہ امتحان کا ڈیٹ شیٹ جاری" }, b: { en: "Exams begin on 1 December. Download or print the date sheet below.", ur: "امتحانات یکم دسمبر سے شروع ہوں گے۔ ڈیٹ شیٹ نیچے سے پرنٹ کریں۔" } },
@@ -256,7 +256,9 @@
 
   /* ---------- Rendering helpers ---------- */
   function renderNotices() {
-    $("#noticeList").innerHTML = NOTICES.map(n => `
+    const list = $("#noticeList");
+    if (!list) return;
+    list.innerHTML = NOTICES.map(n => `
       <div class="notice-item">
         <div class="date-chip"><b>${n.d}</b><span>${n.m[lang]}</span></div>
         <div><h3>${esc(n.t[lang])}</h3><p>${esc(n.b[lang])}</p></div>
@@ -264,8 +266,10 @@
   }
 
   function renderDateSheet() {
+    const body = $("#dateSheetBody");
+    if (!body) return;
     const locale = lang === "ur" ? "ur-PK" : "en-GB";
-    $("#dateSheetBody").innerHTML = DATE_SHEET.map(r => {
+    body.innerHTML = DATE_SHEET.map(r => {
       const d = new Date(r.date + "T00:00:00");
       const label = d.toLocaleDateString(locale, { weekday: "short", day: "numeric", month: "short", year: "numeric" });
       return `<tr><td>${esc(label)}</td><td><strong>${esc(t("sub." + r.sub))}</strong></td><td><bdi dir="ltr">${esc(r.time)}</bdi></td><td><bdi dir="ltr">${esc(r.hall)}</bdi></td></tr>`;
@@ -275,7 +279,7 @@
   let currentResult = null;
   function renderResult() {
     const out = $("#resultOut");
-    if (!currentResult) return;
+    if (!out || !currentResult) return;
     const r = currentResult;
     const total = r.marks.reduce((a, m) => a + m.total, 0);
     const got = r.marks.reduce((a, m) => a + m.got, 0);
@@ -310,7 +314,8 @@
   }
 
   function renderNotFound() {
-    $("#resultOut").innerHTML = `<div class="alert alert-warning mb-0">${esc(t("res.notfound"))}</div>`;
+    const out = $("#resultOut");
+    if (out) out.innerHTML = `<div class="alert alert-warning mb-0">${esc(t("res.notfound"))}</div>`;
   }
 
   /* ---------- Language ---------- */
@@ -326,13 +331,21 @@
     $$("[data-i18n-aria-label]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAriaLabel)); });
     $$("[data-i18n-placeholder]").forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
     filterResources();
-    document.title = t("hero.title");
-    $("#langToggle").textContent = isUr ? "English" : "اردو";
+    if ($("#heroCarousel")) {
+      document.title = t("hero.title");
+    } else {
+      const activeNavLink = $("#navMenu .nav-link.active");
+      if (activeNavLink) document.title = `${activeNavLink.textContent.trim()} | ${t("brand")}`;
+    }
+    const langToggle = $("#langToggle");
+    if (langToggle) langToggle.textContent = isUr ? "English" : "اردو";
 
     // Nav spacing flips with direction
     const navUl = $("#navMenu .navbar-nav");
-    navUl.classList.toggle("ms-auto", !isUr);
-    navUl.classList.toggle("me-auto", isUr);
+    if (navUl) {
+      navUl.classList.toggle("ms-auto", !isUr);
+      navUl.classList.toggle("me-auto", isUr);
+    }
 
     renderNotices();
     renderDateSheet();
@@ -383,15 +396,18 @@
     applyLang(saved === "en" ? "en" : "ur");
     animateCounters();
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches && $("#heroCarousel")) {
       const carousel = $("#heroCarousel");
       carousel.dataset.bsRide = "false";
       bootstrap.Carousel.getOrCreateInstance(carousel).pause();
     }
 
-    $("#langToggle").addEventListener("click", () => applyLang(lang === "en" ? "ur" : "en"));
-    $("#resourceSearch").addEventListener("input", filterResources);
-    $("#printSheet").addEventListener("click", () => window.print());
+    const langToggle = $("#langToggle");
+    if (langToggle) langToggle.addEventListener("click", () => applyLang(lang === "en" ? "ur" : "en"));
+    const resourceSearch = $("#resourceSearch");
+    if (resourceSearch) resourceSearch.addEventListener("input", filterResources);
+    const printSheet = $("#printSheet");
+    if (printSheet) printSheet.addEventListener("click", () => window.print());
 
     // Result tabs
     $$("#results .res-tab").forEach(tab => {
@@ -404,7 +420,8 @@
     });
 
     // Internal result lookup (demo)
-    $("#resultForm").addEventListener("submit", e => {
+    const resultForm = $("#resultForm");
+    if (resultForm) resultForm.addEventListener("submit", e => {
       e.preventDefault();
       const roll = $("#rollNo").value.trim().toUpperCase();
       const reg = $("#regNo").value.trim().toUpperCase();
@@ -425,7 +442,8 @@
         { sub: "urdu", total: 100, got: 77 },  { sub: "math", total: 100, got: 65 }
       ]
     };
-    $("#resultFormWifaq").addEventListener("submit", e => {
+    const resultFormWifaq = $("#resultFormWifaq");
+    if (resultFormWifaq) resultFormWifaq.addEventListener("submit", e => {
       e.preventDefault();
       const roll = $("#wifaqRoll").value.trim().toUpperCase();
       const reg = $("#wifaqReg").value.trim().toUpperCase();
@@ -466,7 +484,8 @@
     });
 
     // Contact form (demo)
-    $("#contactForm").addEventListener("submit", e => {
+    const contactForm = $("#contactForm");
+    if (contactForm) contactForm.addEventListener("submit", e => {
       e.preventDefault();
       const ok = $("#cName").value.trim() && $("#cPhone").value.trim() && $("#cMsg").value.trim();
       $("#contactAlert").innerHTML = `<div class="alert ${ok ? "alert-success" : "alert-danger"} mb-0">${esc(ok ? t("con.ok") : t("con.err"))}</div>`;
@@ -474,22 +493,25 @@
     });
 
     // Accessible gallery lightbox
-    const galleryDialog = document.createElement("dialog");
-    galleryDialog.className = "gallery-lightbox";
-    galleryDialog.dataset.i18nAriaLabel = "gal.preview";
-    galleryDialog.innerHTML = `<button class="gallery-lightbox__close" type="button" data-i18n-aria-label="gal.close">&times;</button><img alt="">`;
-    document.body.append(galleryDialog);
-    galleryDialog.querySelector(".gallery-lightbox__close").addEventListener("click", () => galleryDialog.close());
-    galleryDialog.addEventListener("click", e => { if (e.target === galleryDialog) galleryDialog.close(); });
-    $("#gallery .gal-zoom").forEach(button => {
+    const gallery = $("#gallery");
+    if (gallery) {
+      const galleryDialog = document.createElement("dialog");
+      galleryDialog.className = "gallery-lightbox";
+      galleryDialog.dataset.i18nAriaLabel = "gal.preview";
+      galleryDialog.innerHTML = `<button class="gallery-lightbox__close" type="button" data-i18n-aria-label="gal.close">&times;</button><img alt="">`;
+      document.body.append(galleryDialog);
+      galleryDialog.querySelector(".gallery-lightbox__close").addEventListener("click", () => galleryDialog.close());
+      galleryDialog.addEventListener("click", e => { if (e.target === galleryDialog) galleryDialog.close(); });
+      $$("#gallery .gal-zoom").forEach(button => {
       button.addEventListener("click", () => {
         const photo = button.closest(".gal-item").querySelector(".gal-photo");
         const preview = galleryDialog.querySelector("img");
         preview.src = photo.currentSrc || photo.src;
         preview.alt = photo.alt;
         galleryDialog.showModal();
+        });
       });
-    });
+    }
 
     // Gallery filter
     $$("#gallery .gal-filter").forEach(btn => {
@@ -511,18 +533,14 @@
     }));
 
     // Active nav link on scroll, navbar shadow, back to top
-    const sections = $$("main section[id], header[id]");
-    const links = $$("#navMenu .nav-link");
     const toTop = $("#toTop");
     const onScroll = () => {
-      $("#mainNav").classList.toggle("scrolled", window.scrollY > 10);
-      toTop.classList.toggle("show", window.scrollY > 600);
-      let current = "home";
-      sections.forEach(s => { if (window.scrollY + 120 >= s.offsetTop) current = s.id; });
-      links.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + current));
+      const mainNav = $("#mainNav");
+      if (mainNav) mainNav.classList.toggle("scrolled", window.scrollY > 10);
+      if (toTop) toTop.classList.toggle("show", window.scrollY > 600);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    if (toTop) toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
   });
 })();
