@@ -9,6 +9,87 @@
     padding: 3.5rem 0 4rem;
 }
 
+.about-hero > .container {
+    width: 100%;
+}
+
+.about-foundation {
+    position: relative;
+    z-index: 1;
+    padding: 1.5rem 0 0;
+}
+
+.foundation-card {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: clamp(1.2rem, 3vw, 2rem);
+    border: 1px solid rgba(200, 166, 79, .42);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, .84);
+    box-shadow: 0 16px 38px rgba(18, 58, 39, .1);
+}
+
+.foundation-card__icon {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    border-radius: 16px;
+    background: var(--green-100);
+    color: var(--green-700);
+    font-size: 1.5rem;
+}
+
+.foundation-card__eyebrow,
+.foundation-card__by {
+    margin: 0;
+    color: var(--gold-600);
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+.foundation-card h2 {
+    margin: .1rem 0 .25rem;
+    color: var(--green-900);
+    font-family: var(--font-urdu);
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    line-height: 1.8;
+}
+
+.foundation-card__names {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem clamp(1.25rem, 2.5vw, 2.5rem);
+    margin: .75rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--ink);
+    font-family: var(--font-urdu);
+    line-height: 2.1;
+}
+
+.foundation-card__names li {
+    min-width: 0;
+}
+
+.foundation-card__date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 7.5rem;
+    padding: .65rem .9rem;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--ivory);
+    color: var(--green-900);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
 .about-hero h1 {
     color: #fff;
     font-size: clamp(2rem, 4.5vw, 3.2rem);
@@ -225,11 +306,90 @@ html[lang="ur"] .about-hero h1 {
 }
 
 @media (max-width: 767.98px) {
+    .about-hero {
+        min-height: 20rem;
+        padding: 2.75rem 0 3.5rem;
+        background-position: 58% center;
+    }
+
+    .about-hero__lead {
+        font-size: 1rem;
+        line-height: 1.9;
+    }
+
+    .about-foundation {
+        padding-top: 1rem;
+    }
+
+    .foundation-card {
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 1rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .foundation-card__icon {
+        width: 2.8rem;
+        border-radius: 12px;
+        font-size: 1.2rem;
+    }
+
+    .foundation-card__date {
+        grid-column: 1 / -1;
+        justify-self: start;
+        margin-inline-start: calc(2.8rem + 1rem);
+    }
+
+    html[dir="ltr"] .foundation-card__date {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+    }
+
+    .about-facts {
+        margin-top: 1rem;
+    }
+
+    .fact {
+        padding: 1rem .65rem;
+    }
+
+    .fact__num {
+        font-size: 1.9rem;
+    }
+
     .dep-list {
         grid-template-columns: 1fr;
     }
 
     .about-block {
         padding: 3.25rem 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .foundation-card {
+        grid-template-columns: 1fr;
+    }
+
+    .foundation-card__icon {
+        width: 2.6rem;
+    }
+
+    .foundation-card__date {
+        grid-column: auto;
+        margin: 0;
+    }
+
+    .foundation-card__names {
+        display: grid;
+        gap: .65rem;
+    }
+
+    .fact__lbl {
+        font-size: .78rem;
+        line-height: 1.5;
+    }
+
+    .about-cta .btn {
+        width: 100%;
     }
 }
